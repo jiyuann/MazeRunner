@@ -23,7 +23,8 @@ class Node:
 
     def __init__(self, data):
         # Replace the line below with your code
-        raise NotImplementedError
+        self.next = None
+        self._data = data
 
     def __repr__(self) -> str:
         return f'Node({self.get()})'
@@ -40,7 +41,7 @@ class Node:
         return self._data
 
 
-class LinkedList:
+class LinkedList():
     """
     Represents a sequence of data items.
 
@@ -77,7 +78,12 @@ class LinkedList:
         Return: int
         """
         # Replace the line below with your code
-        raise NotImplementedError
+        count = 0
+        if self.next is None:
+          return count
+        else:
+          self.next
+          count += 1
 
     def get(self, n: int) -> "item":
         """Returns item at n-th node.
@@ -92,7 +98,12 @@ class LinkedList:
         Raises: IndexError if n > length
         """
         # Replace the line below with your code
-        raise NotImplementedError
+        count = 0
+        current = self._head
+        while count < n-1:
+            current.next
+            count += 1
+        return current.get()
 
     def insert(self, n: int, item) -> None:
         """Insert item into linkedlist at position n.
@@ -109,7 +120,9 @@ class LinkedList:
         Raises: IndexError if n > length
         """
         # Replace the line below with your code
-        raise NotImplementedError
+        self.get(n)
+        newnode = item
+        
 
     def append(self, item) -> None:
         """Append item at the end of linkedlist.
@@ -122,7 +135,14 @@ class LinkedList:
         Returns: None
         """
         # Replace the line below with your code
-        raise NotImplementedError
+        if self._head is None:
+          new_node = Node(item)
+          self._head = new_node
+        else:
+          current = self._head
+          while current.next is not None:
+            current = current.next
+          current.next = Node(item)
 
     def delete(self, n: int) -> None:
         """Delete n-th item from linkedlist.
@@ -153,3 +173,11 @@ class LinkedList:
         """
         # Replace the line below with your code
         raise NotImplementedError
+
+
+if __name__ == "__main__":
+    list = LinkedList()
+    list.get('a')
+    list.append('banana')
+    list.append('c')
+    print(list._head.get(2))
